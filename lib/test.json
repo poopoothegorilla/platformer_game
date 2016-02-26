@@ -1,0 +1,21 @@
+{"frames": {
+
+"dude.png":
+{
+	"frame": {"x":1,"y":1,"w":284,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":5,"w":284,"h":43},
+	"sourceSize": {"w":288,"h":48},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "test.png",
+	"format": "RGBA8888",
+	"size": {"w":286,"h":45},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9957651a7c5dc314e3116ba151f7ff66:5bb7ef632e267431c84d2cbf7d5f9f81:02ab132358d6d8b512e80119463a8329$"
+}
+}
