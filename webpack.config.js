@@ -24,7 +24,7 @@ module.exports = {
         presets: ['es2015']
       }
     },
-    { test: /pixi.js/, loader: "script" },
+    { test: /pixi.js/, loader: 'script' },
     { test: /p2\.js/, loader: 'expose?p2' },
     { test: /phaser-split\.js$/, loader: 'expose?Phaser' },
     ],
