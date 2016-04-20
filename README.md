@@ -13,3 +13,43 @@
 # FAQ
 **I'm getting a "This seems to be a pre-built javascript file" error for p2 (or something else) -- what gives?!**
   Unfortunately Phaser doesn't play well with Webpack or other bundlers such as Browserify; see the bajillion issues on the Phaser github for more details. This will probably be less of a problem when Lazer (aka Phaser 3, which is Phaser updated for es6) is released, but for now, this should be an ignorable warning. JS dependency management is hell :/
+**Ugh how do these es6 import/exports even work**
+  Here's a good reference: http://exploringjs.com/es6/ch_modules.html
+
+**How do I turn a plain ole Javascript object constructor & prototype into an es6 class?**
+  This:
+  ```
+  Player = function(attrVal) {
+    this.attr = attrVal;
+  }
+
+  Player.prototype = {
+    methodOne: function() {
+      return stuff;
+    },
+    methodTwo: function(param) {
+      return param;
+    }
+  }
+  ```
+  is now this:
+  ```
+  class Player {
+    constructor(attrVal) {
+      this.attr = attrVal;
+    }
+
+    methodOne() {
+      return stuff;
+    }
+
+    methodTwo(param) {
+      return param;
+    }
+  }
+  ```
+  Note:
+  - Don't put commas in between the es6 class's methods
+  - The object constructor is now inside the class at the top
+  - No need for `: function()` to declare the methods
+  - `export default` is for exporting it as an es6 module, for import elsewhere.
