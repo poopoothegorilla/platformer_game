@@ -14,3 +14,10 @@ platformer_game
 - Players are now stored in the group `playersGroup`
 - Switched over to using the Phaser method `overlap` in `Phaser.Physics.Arcade`, which does all the work of checking collision between sprites for us, eliminating the need for the methods `punchHitDetection` and `inZpace`
   - *Aside:* `overlap` is actually very powerful; not only can you pass an individual `sprite` or `Group` or `ParticleEmitter` into it, you can also pass an Array of sprites or groups or particle emitters, which will be super useful if/when we introduce different kinds of enemies, pickups, or special attacks like flame attacks. (Doc: http://phaser.io/docs/2.4.7/Phaser.Physics.Arcade.html#overlap)
+  - `overlap` also returns the colliding sprites into your provided callbacks. Hooray!
+- Changed from storing states as numbers 0-6, to descriptive strings such as `standing`, `stalking`, `attacking`
+  - State randomization is now done by storing the string choices in an array and choosing a random number between the array's indices, so:
+  ```
+  var myChoices = ['thing1', 'thing2', 'thing3'];
+  var randomThing = myChoices[randNumBetween(0, 2)];
+  ```
