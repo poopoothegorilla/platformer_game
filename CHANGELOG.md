@@ -13,4 +13,4 @@ platformer_game
 ### Game Logic:
 - Players are now stored in the group `playersGroup`
 - Switched over to using the Phaser method `overlap` in `Phaser.Physics.Arcade`, which does all the work of checking collision between sprites for us, eliminating the need for the methods `punchHitDetection` and `inZpace`
-  - *Aside:* `overlap` is actually very powerful; not only can you pass an individual `sprite` or `Group` into it, you can also pass an Array of sprites or groups, which will be super useful if/when we introduce different kinds of enemies, or even pickups. (Doc: http://phaser.io/docs/2.4.7/Phaser.Physics.Arcade.html#overlap)
+  - *Aside:* `overlap` is actually very powerful; not only can you pass an individual `sprite` or `Group` or `ParticleEmitter` into it, you can also pass an Array of sprites or groups or particle emitters, which will be super useful if/when we introduce different kinds of enemies, pickups, or special attacks like flame attacks. (Doc: http://phaser.io/docs/2.4.7/Phaser.Physics.Arcade.html#overlap)
