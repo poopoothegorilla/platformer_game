@@ -16,7 +16,7 @@
 **Ugh how do these es6 import/exports even work**
   Here's a good reference: http://exploringjs.com/es6/ch_modules.html
 
-**How do I turn a plain ole Javascript object constructor & prototype into an es6 class?**
+**How do I write a plain ole Javascript object constructor & prototype as an es6 class?**
   This:
   ```
   Player = function(attrVal) {
@@ -53,3 +53,18 @@
   - The object constructor is now inside the class at the top
   - No need for `: function()` to declare the methods
   - `export default` is for exporting it as an es6 module, for import elsewhere.
+
+**What's () => ?**
+  When you need to write a function with its parent's `this` bound to it, you would ordinarily do:
+  ```
+  function() {
+    ...
+  }.bind(this)
+  ```
+  `() =>` just shortcuts the `function` keyword and the `this` binding, so the above is now the neat and tidy:
+
+  ```
+  () => {
+    ...
+  }
+  ```
