@@ -21,3 +21,4 @@ platformer_game
   var myChoices = ['thing1', 'thing2', 'thing3'];
   var randomThing = myChoices[randNumBetween(0, 2)];
   ```
+- Added an `updateSprite()` method to the Thug object, which passes certain helpful Thug attributes to the sprite, for use in `HitDetectionEngine`.
