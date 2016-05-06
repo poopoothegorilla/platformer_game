@@ -1,0 +1,28 @@
+{
+  "name": "platformer_game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "game.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poopoothegorilla/platformer_game.git"
+  },
+  "author": "Jim Walker",
+  "bugs": {
+    "url": "https://github.com/poopoothegorilla/platformer_game/issues"
+  },
+  "homepage": "https://github.com/poopoothegorilla/platformer_game#readme",
+  "devDependencies": {
+    "webpack": "^v1.13.0",
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.3.13",
+    "expose-loader": "",
+    "script-loader": "^0.6.1",
+    "phaser": "^2.4.6"
+  }
+}
