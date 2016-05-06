@@ -11,14 +11,15 @@ platformer_game
 - Added a basic event handling system patterned after node.js's to (hopefully!) improve handling hit detection & damage distribution when multiple players and enemies are present
 
 ### Game Logic:
-- Players are now stored in the group `playersGroup`
-- Switched over to using the Phaser method `overlap` in `Phaser.Physics.Arcade`, which does all the work of checking collision between sprites for us, eliminating the need for the methods `punchHitDetection` and `inZpace`
-  - *Aside:* `overlap` is actually very powerful; not only can you pass an individual `sprite` or `Group` or `ParticleEmitter` into it, you can also pass an Array of sprites or groups or particle emitters, which will be super useful if/when we introduce different kinds of enemies, pickups, or special attacks like flame attacks. (Doc: http://phaser.io/docs/2.4.7/Phaser.Physics.Arcade.html#overlap)
-  - `overlap` also returns the colliding sprites into your provided callbacks. Hooray!
+- Hit detection is now handled via a hit detection engine that exists on the game level, instead of on the individual player or enemy object. It leverages the `overlap` method in the Phaser Arcade engine to automatically detect if any player and any enemy sprite overlap, check if an attack has registered, and then fire Phaser events to distribute damage. This should make hit detection and damage distribution generally easier to reason about and handle, especially once we get
+  - Players are now stored in the group `playersGroup`
+  - Switched over to using the Phaser method `overlap` in `Phaser.Physics.Arcade`, which does all the work of checking collision between sprites for us, eliminating the need for the methods `punchHitDetection` and `inZpace`
+    - *Aside:* `overlap` is actually very powerful; not only can you pass an individual `sprite` or `Group` or `ParticleEmitter` into it, you can also pass an Array of sprites or groups or particle emitters, which will be super useful if/when we introduce different kinds of enemies, pickups, or special attacks like flame attacks. (Doc: http://phaser.io/docs/2.4.7/Phaser.Physics.Arcade.html#overlap)
+    - `overlap` also returns the colliding sprites into your provided callbacks. Hooray!
 - Changed from storing states as numbers 0-6, to descriptive strings such as `standing`, `stalking`, `attacking`
   - State randomization is now done by storing the string choices in an array and choosing a random number between the array's indices, so:
   ```
   var myChoices = ['thing1', 'thing2', 'thing3'];
   var randomThing = myChoices[randNumBetween(0, 2)];
   ```
-- Added an `updateSprite()` method to the Thug object, which passes certain helpful Thug attributes to the sprite, for use in `HitDetectionEngine`.
+- Certain attributes on the Thug and Player object are now passed into its sprite, for use in the hit detection engine.
