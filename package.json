@@ -12,6 +12,15 @@
     "url": "git+https://github.com/poopoothegorilla/platformer_game.git"
   },
   "author": "Jim Walker",
+  "contributors": {
+    "name": "Elyssa Albert",
+    "name": "Jia Borchardt",
+    "name": "Jason Fellows",
+    "name": "Jack Foster",
+    "name": "Amber Le",
+    "name": "Brian Tenazas",
+    "name": "Shelly Yip"
+  },
   "bugs": {
     "url": "https://github.com/poopoothegorilla/platformer_game/issues"
   },
