@@ -1,6 +1,11 @@
 platformer_game
 ==========================
 
+## 5/6/16
+
+### General Refactoring:
+- Removed no-longer-needed custom EventEmitter in favor of Phaser's event system (aka Signal)
+
 ## v0.1.1 - 4/23/16
 
 ### General Changes:
