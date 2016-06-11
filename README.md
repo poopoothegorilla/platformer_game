@@ -1,7 +1,7 @@
 # Namely platformer game
 
 ## To run the game
-1. In a terminal, type in `pythom -m SimpleHTTPServer 8000` 
+1. In a terminal, type in `pythom -m SimpleHTTPServer 8000`
 2. In a browser, go to `localhost:8000`
 3. Game should now be running! Press the arrow keys to move around and spacebar to attack.
 
@@ -16,6 +16,11 @@
 - Babel: transpiles Javascript written in the es6 standard (which is not yet supported by browsers) into old-school Javascript that browsers can run.
   - *Why es6?* es6 introduces modules, allowing us to export our js partials and import them into each other, allowing for easier organization and avoiding needing to import them all as `<script>` tags in `index.html`, which in turn also allows us to stop worrying about the order in which those js scripts are loaded! :D (es6 also has a bunch of other new features, but for now I'm only using the module feature to keep complexity down.)
 - Phaser: our game engine! Included as a node module so we can bundle it up with Webpack too (see https://github.com/photonstorm/phaser#webpack)
+
+### Glossary
+- actor: basically a player or an enemy; something that can attack, take damage, has HP, and can die.
+- hitbox: the area in which, if an attack lands, would register damage onto the actor to which the hitbox belongs. It would also be the area concerned with collision. Phaser-wise, it's the actor's sprite/collision body.
+- attackbox: basically an attack's hitbox; the area around a fist or bullet for example, which, if it collides with a hitbox, would register a hit.
 
 ### FAQ
 **I'm getting a "This seems to be a pre-built javascript file" error for p2 (or something else) -- what gives?!**
