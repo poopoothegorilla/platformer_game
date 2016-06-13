@@ -17,14 +17,12 @@
   - *Why es6?* es6 introduces modules, allowing us to export our js partials and import them into each other, allowing for easier organization and avoiding needing to import them all as `<script>` tags in `index.html`, which in turn also allows us to stop worrying about the order in which those js scripts are loaded! :D (es6 also has a bunch of other new features, but for now I'm only using the module feature to keep complexity down.)
 - Phaser: our game engine! Included as a node module so we can bundle it up with Webpack too (see https://github.com/photonstorm/phaser#webpack)
 
-<<<<<<< HEAD
 ### Glossary
 - actor: basically a player or an enemy; something that can attack, take damage, has HP, and can die.
 - hitbox: the area in which, if an attack lands, would register damage onto the actor to which the hitbox belongs. It would also be the area concerned with collision. Phaser-wise, it's the actor's sprite/collision body.
 - attackbox: basically an attack's hitbox; the area around a fist or bullet for example, which, if it collides with a hitbox, would register a hit.
+- busy: (NOTE: this needs cleanup across the codebase; I've been kind of using this inconsistently) A boolean property of the sprite that, if true, means the sprite should not be attacked or receive damage. This could be because the sprite is in an animation that shouldn't be interrupted, such as an intro animation, speaking, has just been injured, or is in the process of dying.
 
-=======
->>>>>>> 214816e357bbe99fa6418de9ec76512a01a141e8
 ### FAQ
 **I'm getting a "This seems to be a pre-built javascript file" error for p2 (or something else) -- what gives?!**
   Unfortunately Phaser doesn't play well with Webpack or other bundlers such as Browserify; see the bajillion issues on the Phaser github for more details. This will probably be less of a problem when Lazer (aka Phaser 3, which is Phaser updated for es6) is released, but for now, this should be an ignorable warning. JS dependency management is hell :/
