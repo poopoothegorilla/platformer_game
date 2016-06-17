@@ -32,6 +32,6 @@
     "babel-preset-es2015": "^6.3.13",
     "expose-loader": "",
     "script-loader": "^0.6.1",
-    "phaser": "photonstorm/phaser#dev"
+    "phaser": "^2.4.9"
   }
 }
