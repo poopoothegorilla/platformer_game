@@ -1,6 +1,26 @@
 platformer_game
 ==========================
 
+## v0.2.2 - 6/21/16
+- Updated to Phaser v2.5.0 'Five Kings'
+
+### New Features:
+- Implemented a basic stub-in PatDino; right now he's just a giant Thug with a regular punch attack and just stalking.
+- Added lo-fi health bars for the Player and PatDino; just names and numbers for now
+
+### Under the Hood:
+- Phaser introduced a `data` property for custom properties, so I'm starting to move our custom props such as `busy`, `state`, etc. under this. (Didn't do this across the board yet, so code is still messy and inconsistent)
+- Starting to try to iron out the very important `busy` state; I haven't been using this consistently but I am trying to define it as "when the actor should not take damage", and hopefully will be able to clean up its usage across all actors soon, especially on the Player (who is still nukeable if attacked by multiple enemies at once).
+- Created a new module for UI elements; currently handles just healthbars. It adds a `healthbars` property to the `game` object, allowing actors to hook into it via an `updateHealthBar` function. This allows healthbars to be created on the game level, while being updated by their actors.
+- Instead of using our own damage counter, modified the one that already exists in Phaser, `Phaser.Sprite.prototype.damage` so, instead of immediately firing `kill()` and immediately removing the sprite when health reaches 0, it now fires a custom event `onZeroHealth` that we can use to hook into and play a death animation before firing `kill()`.
+
+#### New Actor Properties:
+- Added a new property for enemy actors called `target`, which is the Phaser Sprite that the enemy actor is going after. This is only implemented on PatDino right now, but it essentially replaces the `player` object currently used in the Thug actor, and is therefore set up for when multiple players are introduced.
+ - Moving forward, instead of passing in a specific player into an enemy actor, we can use a new Phaser method `Group.getClosestTo(sprite)`, which can be used to find the player that is closest to that enemy sprite. That player becomes the enemy's target for stalking, chasing, and attacking.
+ - Therefore, each enemy actor in particular needs an `opponentGroup` property, which is the Phaser Group that contains the players. (Or something else in the future, such as other enemies!)
+ - This has not actually been tested with multiple players yet!
+- Added `direction` to PatDino to save whether the sprite is facing right or left.
+
 ## v0.2.1 - 6/10/16
 - Upgraded to Phaser Dev branch (2.4.9)! This is indeed risky, but the dev branch has some fixes to some broken sprite behavior that was preventing attackboxes from working correctly.
 
